@@ -1,0 +1,55 @@
+<%- include("./partials/header") %>
+
+<div class="container mt-5">
+    <a href="/" class="btn btn-primary mb-5">Go Back</a>
+
+    <h1>Register Account</h1>
+    <form action="/register" method="POST">
+        <div class="form-group">
+            <label for="exampleInputfirstName">firstName</label>
+            <input type="text" name="firstName" placeholder="Enter first name:" required class="form-control" id="exampleInputfirstName>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputlastName">lastName</label>
+            <input type="text" name="lastName" placeholder="Enter last name:" required class="form-control" id="exampleInputlastName>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputCollegeId">CollegeId</label>
+            <input type="text" name="collegeId" placeholder="Enter your CollegeId:" required class="form-control" id="exampleInputCollegeId">
+ 
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" name="email" placeholder="Enter your College Email:" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputcourse">course</label>
+            <input type="text" name="course"   required class="form-control" id="exampleInputcourse" placeholder="Enter your Course:" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleInputgraduationYear">graduationYear</label>
+            <input type="number" name="graduationYear"class="form-control" id="exampleInputgraduationYear" placeholder="Enter your graduation year" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+  
+        <div class="form-group">
+            <label for="exampleInputPassword1">RepeatPassword</label>
+            <input type="password" name="RepeatPassword"  class="form-control" id="exampleInputPassword1" placeholder="Repeat Password" required> 
+        </div>
+        <p >Already have an account?&nbsp;&nbsp;<a href="#" >Login here</a></p>
+
+        <div>
+            <button type="cancel" class="btn btn-primary">Cancel</button>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+       
+    </form>
+    Already Have An Account ? <a href="/login">Click Here</a>
+</div>
+
+<%- include("./partials/footer") %>

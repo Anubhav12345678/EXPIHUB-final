@@ -1,0 +1,92 @@
+<%- include("./partials/header") %>
+
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Experience</h5>
+        </div>
+        <div class="modal-body">
+           <form action="/interviewexperience" method="POST">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" name="title" class="form-control" id="title">
+            </div>
+            <div class="form-group">
+                <label >Description</label>
+                <textarea name="description" class="form-control" id="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label >Job Type</label>
+                <input type="text" name="jobType" class="form-control" id="jobType">
+            </div>
+            <div class="form-group">
+                <label >Company Name</label>
+                <input type="text" name="companyName" class="form-control" id="companyName">
+            </div>
+            <div class="form-group">
+                <label >Was it an On-campus Opportunity</label>
+                <select name="isoncampus">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+           </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between container mtop30">
+      <button class="btn btn-secondary btn-lg">Interview Question</button>
+      <button class="btn btn-secondary btn-lg">Interview Experience</button>
+      <button class="btn btn-secondary btn-lg">Career</button>
+      <button class="btn btn-secondary btn-lg">General Discussion</button>
+  </div>
+  <!-- modal activate button -->
+  <button type="button" class="btn btn-primary addexp" data-toggle="modal" data-target="#exampleModal">
+    Add Interview Experience
+  </button>
+  <div class="d-flex heading">
+    <h1>Interview Experience</h1> &nbsp;&nbsp;&nbsp;&nbsp; <p>Share details about the interview processes you have been through</p>
+  </div>
+  <% if(exps.length > 0) { %>
+    <% exps.forEach((exp) => { %>
+      <div class="jumbotron">
+        <b><h4 class="lead"><%= exp.title %></h4></b>
+        <p class="d-flex mx-auto justify-content-between">
+          <b><h4 class="lead"><%= exp.postedBy.firstName %> <%= exp.postedBy.lastName %></h4></b>
+          <b><h4 class="lead"><%= exp.jobType  %></h4></b>
+        </p>
+        <p class="lead"><%= exp.description %></p>
+        <hr class="my-4">
+        <b><h4 class="lead"><%= exp.companyName %></h4></b>
+        <% if(exp.isoncampus) { %>
+         <h4> It was an oncampus opportunity</h4>
+        <% } else { %>
+         <h4> It was an Off-campus opportunity</h4>
+          <% } %>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+      </div>
+    <% }) %>
+  <% } else { %>
+      <h1><b>No Experiences Added Untill Now!!!</b></h1>
+
+    <% } %>
+
+
+
+
+
+<%- include("./partials/footer") %>
